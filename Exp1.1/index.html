@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Student Registration</h1>
+    <p class="lead">Register new students using the form below.</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <form class="registration-form" action="#" method="post" novalidate>
+        <fieldset>
+          <legend>Student details</legend>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="J" required minlength="2" 
+                pattern="[A-Za-zÀ-ÖØ-öø-ÿ \-']+" aria-describedby="nameHelp">
+              <small id="nameHelp" class="help">Enter first and last name (letters, spaces, apostrophes allowed).</small>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="jane@example.com" required aria-describedby="emailHelp">
+              <small id="emailHelp" class="help">We'll use this to contact the student.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input id="age" name="age" type="number" placeholder="18" required min="5" max="120" step="1" aria-describedby="ageHelp">
+              <small id="ageHelp" class="help">Enter age (between 5 and 120).</small>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="notes">Notes (optional)</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Allergies, special needs..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Register student</button>
+            <button type="reset" class="btn">Reset</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Example form — uses HTML5 validation and responsive CSS.</p>
+  </footer>
+</body>
+</html>

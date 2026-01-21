@@ -1,0 +1,82 @@
+
+:root{
+  --bg:#f7f9fb;
+  --card:#ffffff;
+  --accent:#2563eb;
+  --danger:#dc2626;
+  --muted:#6b7280;
+  --radius:8px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,var(--bg),#f6bd9c);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+}
+.site-header{
+  text-align:center;
+  padding:2rem 1rem 0.5rem;
+}
+.lead{color:var(--muted); margin-top:0.25rem}
+.form-section{
+  display:flex;
+  justify-content:center;
+  padding:1.5rem;
+}
+.registration-form{
+  width:100%;
+  max-width:860px;
+  background:var(--card);
+  padding:1.25rem;
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(15,23,42,0.06);
+}
+fieldset{border:0;padding:0;margin:0}
+legend{font-weight:600;margin-bottom:0.75rem}
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+}
+.form-group{display:flex;flex-direction:column}
+.form-group.full-width{grid-column:1/-1}
+label{font-weight:600;margin-bottom:0.5rem}
+input,textarea,select{
+  padding:0.6rem 0.75rem;
+  border:1px solid #e6e9ee;
+  border-radius:6px;
+  font-size:0.95rem;
+  transition:box-shadow .12s, border-color .12s;
+}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(37,99,235,0.08)}
+.help{color:var(--muted);font-size:0.85rem;margin-top:0.35rem}
+
+/* HTML5 validation states */
+input:invalid,textarea:invalid{
+  border-color:var(--danger);
+}
+input:valid,textarea:valid{
+  border-color:#10b98133;
+}
+
+.form-actions{
+  display:flex;
+  gap:0.75rem;
+  justify-content:flex-end;
+  margin-top:1rem;
+}
+.btn{padding:0.6rem 0.9rem;border-radius:6px;border:1px solid #e6e9ee;background:transparent;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn:focus{outline:none;box-shadow:0 0 0 4px rgba(37,99,235,0.12)}
+
+.site-footer{text-align:center;color:var(--muted);padding:1rem;font-size:0.9rem}
+
+/* Responsive adjustments */
+@media (max-width:720px){
+  .form-grid{grid-template-columns:1fr}
+  .form-actions{justify-content:stretch;flex-direction:column}
+  .btn{width:100%}
+}
