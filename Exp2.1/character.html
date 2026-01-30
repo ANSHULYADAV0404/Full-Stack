@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { font-family: sans-serif; padding: 20px; }
+  .table-box { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  th, td { border: 1px solid #c20909; padding: 10px; text-align: left; }
+  
+  /* Modern Input Style */
+  textarea { 
+    width: 100%; padding: 8px; box-sizing: border-box; 
+    border: 1px solid #10a831; border-radius: 4px;
+  }
+
+  /* Visual Feedback */
+  .limit-msg { color: rgb(30, 24, 186); font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h3>Live Char Counter Project</h3>
+<table class="table-box">
+  <tr>
+    <th>Message Input</th>
+    <th width="100">Count</th>
+  </tr>
+  <tr>
+    <td>
+      <textarea id="textInput" placeholder="Write here..." oninput="counter()"></textarea>
+    </td>
+    <td><span id="display">0</span> / 100</td>
+  </tr>
+</table>
+
+<script>
+function counter() {
+  let input = document.getElementById('textInput');
+  let display = document.getElementById('display');
+  let val = input.value;
+
+  // Real-time Update
+  display.innerText = val.length;
+
+  // Visual Feedback for limit
+  if (val.length >= 100) {
+    display.classList.add('limit-msg');
+    input.value = val.substring(0, 100); // Stop typing
+  } else {
+    display.classList.remove('limit-msg');
+  }
+}
+</script>
+
+</body>
+</html>
