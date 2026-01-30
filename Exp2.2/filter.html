@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+  
+  /* Dropdown Style */
+  #categorySelect { padding: 10px; margin-bottom: 20px; border-radius: 5px; }
+
+  /* Responsive Grid */
+  .store-grid { display: flex; flex-wrap: wrap; gap: 15px; }
+
+  /* Product Card */
+  .product-card { 
+    background: white; border: 1px solid #ddd; padding: 15px; 
+    width: 180px; border-radius: 8px; text-align: center;
+    transition: 0.3s ease; /* Animation for layout */
+  }
+
+  /* Hiding filtered items */
+  .hide { display: none; }
+</style>
+</head>
+<body>
+
+<h3>My Store</h3>
+
+<select id="categorySelect" onchange="filterData()">
+  <option value="all">Show All</option>
+  <option value="electronics">Electronics</option>
+  <option value="fashion">Fashion</option>
+</select>
+
+<div class="store-grid" id="grid">
+  <div class="product-card" data-type="electronics">💻<br>Laptop<br><b>₹50k</b></div>
+  <div class="product-card" data-type="fashion">👕<br>T-Shirt<br><b>₹999</b></div>
+  <div class="product-card" data-type="electronics">📱<br>Mobile<br><b>₹15k</b></div>
+  <div class="product-card" data-type="fashion">👟<br>Shoes<br><b>₹2k</b></div>
+</div>
+
+
+
+<script>
+function filterData() {
+  let choice = document.getElementById("categorySelect").value;
+  let items = document.querySelectorAll(".product-card");
+
+  items.forEach(card => {
+    let category = card.getAttribute("data-type");
+
+    // Agar choice 'all' hai ya category match karti hai to show karo
+    if (choice === "all" || category === choice) {
+      card.classList.remove("hide");
+    } else {
+      card.classList.add("hide");
+    }
+  });
+}
+</script>
+
+</body>
+</html>

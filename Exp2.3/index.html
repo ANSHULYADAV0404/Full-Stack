@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Drawing Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="canvas-container">
+  <div class="header-actions">
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <input type="color" id="colorPicker" value="#2563eb">
+      <button class="btn undo-btn" onclick="undo()">Undo</button>
+    </div>
+    <button class="btn" onclick="clearAll()" style="background:#eee;">Clear All</button>
+  </div>
+
+  <svg id="canvas" viewBox="0 0 600 400">
+    </svg>
+
+  <div class="counter-text">Circles drawn: <span id="countDisplay">0</span></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
